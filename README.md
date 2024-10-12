@@ -3,12 +3,12 @@
 Steps to make it work:
 
 ```sh
-cd static-generator
-deno task generate
+# create static site
+just generate
 
-cd ../app
-deno task build
+# build cms
+just build
 
-cd ../cms
-deno task serve
+# run cms
+just serve
 ```
