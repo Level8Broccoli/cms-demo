@@ -1,0 +1,16 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "tasks": {
+    "dynamic": "deno run dynamic.ts",
+    "static": "deno run --allow-write static.ts"
+  },
+  "imports": {
+    "h3": "npm:h3@^2.0.0",
+    "preact": "npm:preact@^10.24.2",
+    "preact-render-to-string": "npm:preact-render-to-string@^6.5.11"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
