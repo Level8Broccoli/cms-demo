@@ -1,10 +1,19 @@
 import { type Route, route } from "@std/http/unstable-route";
-import { serveDir } from "@std/http/file-server";
+import { serveDir, serveFile } from "@std/http/file-server";
+
+const OUTDIR = "dist";
+await Deno.mkdir(OUTDIR, { recursive: true });
 
 const routes: Route[] = [
   {
     pattern: new URLPattern({ pathname: "/" }),
-    handler: (req) => serveDir(req, { fsRoot: "static" }),
+    handler: async (req) => {
+      const staticFile = await Deno.readTextFile("./gen/index.html");
+      const template = await Deno.readTextFile("./template/base.html");
+      const newFile = template.replace("<slot></slot>", staticFile);
+      await Deno.writeTextFile(`${OUTDIR}/index.html`, newFile);
+      return serveFile(req, `./${OUTDIR}/index.html`);
+    },
   },
   {
     pattern: new URLPattern({ pathname: "/gen/*" }),
