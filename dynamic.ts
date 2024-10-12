@@ -1,8 +1,6 @@
-import { createApp, defineEventHandler, toWebHandler } from "h3";
+import { Hono } from "@hono/hono";
+const app = new Hono();
 
-const app = createApp();
+app.get("/", (c) => c.text("Hono!"));
 
-app.use(defineEventHandler(() => "Hello world!"));
-
-// @ts-ignore: ...
-Deno.serve(toWebHandler(app));
+Deno.serve(app.fetch);
