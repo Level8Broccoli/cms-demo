@@ -1,4 +1,4 @@
-# CMS DEMO
+# Kemet
 
 Steps to make it work:
 
