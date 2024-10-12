@@ -16,6 +16,10 @@ const routes: Route[] = [
     },
   },
   {
+    pattern: new URLPattern({ pathname: "/styles.css" }),
+    handler: (req) => serveFile(req, "./template/styles.css"),
+  },
+  {
     pattern: new URLPattern({ pathname: "/gen/*" }),
     handler: (req) => serveDir(req),
   },
