@@ -6,5 +6,10 @@
   "imports": {
     "@std/http": "jsr:@std/http@^1.0.8",
     "preact": "npm:preact@^10.24.2"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true
   }
 }

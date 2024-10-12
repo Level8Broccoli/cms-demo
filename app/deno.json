@@ -9,6 +9,9 @@
     "build": "deno run --allow-read --allow-env --allow-sys --allow-ffi --allow-run --allow-write npm:vite build"
   },
   "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   }
