@@ -11,6 +11,7 @@
         buildInputs = with pkgs; [
           deno
           emmet-ls
+          just
         ];
       };
     }
