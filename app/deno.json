@@ -1,7 +1,12 @@
 {
   "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
   "imports": {
-    "preact": "npm:preact@^10.24.2"
+    "@preact/preset-vite": "npm:@preact/preset-vite@^2.9.1",
+    "preact": "npm:preact@^10.24.2",
+    "vite": "npm:vite@^5.4.8"
+  },
+  "tasks": {
+    "build": "deno run --allow-read --allow-env --allow-sys --allow-ffi --allow-run --allow-write npm:vite build"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
