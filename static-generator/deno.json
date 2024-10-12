@@ -1,0 +1,14 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "tasks": {
+    "generate": "deno run --allow-write generator.ts"
+  },
+  "imports": {
+    "preact": "npm:preact@^10.24.2",
+    "preact-render-to-string": "npm:preact-render-to-string@^6.5.11"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
