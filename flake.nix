@@ -13,6 +13,9 @@
           emmet-ls
           just
         ];
+        shellHook = ''
+          export DENO_FUTURE=1
+        '';
       };
     }
   );

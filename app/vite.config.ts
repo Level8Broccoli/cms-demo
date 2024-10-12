@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: ["/build.ts"],
-      external: ["preact", "preact/jsx-runtime"]
+      external: ["preact", "preact/jsx-runtime"],
     },
   },
 });
