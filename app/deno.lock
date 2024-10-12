@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "npm:@preact/preset-vite@^2.9.1": "npm:@preact/preset-vite@2.9.1_@babel+core@7.25.8_vite@5.4.8_preact@10.24.2",
+    "npm:@types/node": "npm:@types/node@18.16.19",
     "npm:preact@^10.24.2": "npm:preact@10.24.2",
     "npm:vite": "npm:vite@5.4.8",
     "npm:vite@^5.4.8": "npm:vite@5.4.8"
@@ -373,6 +374,9 @@
     },
     "@types/estree@1.0.6": {
       "integrity": "sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw=="
+    },
+    "@types/node@18.16.19": {
+      "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA=="
     },
     "ansi-styles@3.2.1": {
       "integrity": "sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==",

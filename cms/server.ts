@@ -19,6 +19,13 @@ const routes: Route[] = [
     pattern: new URLPattern({ pathname: "/gen/*" }),
     handler: (req) => serveDir(req),
   },
+  {
+    pattern: new URLPattern({ pathname: "/data" }),
+    handler: async () => {
+      const data = await Deno.readTextFile("../app/storage/data.txt");
+      return new Response(data);
+    },
+  },
 ];
 
 function defaultHandler(_req: Request) {
