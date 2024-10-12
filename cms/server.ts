@@ -20,10 +20,23 @@ const routes: Route[] = [
     handler: (req) => serveDir(req),
   },
   {
+    method: ["GET"],
     pattern: new URLPattern({ pathname: "/data" }),
     handler: async () => {
       const data = await Deno.readTextFile("../app/storage/data.txt");
       return new Response(data);
+    },
+  },
+  {
+    method: ["POST"],
+    pattern: new URLPattern({ pathname: "/data" }),
+    handler: async (req) => {
+      const newData = req.body;
+
+      if (newData !== null) {
+        await Deno.writeFile("../app/storage/data.txt", newData);
+      }
+      return new Response("saved", { status: 201 });
     },
   },
 ];
