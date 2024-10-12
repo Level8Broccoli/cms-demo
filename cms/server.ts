@@ -1,18 +1,23 @@
 import { type Route, route } from "@std/http/unstable-route";
-import { serveDir, serveFile } from "@std/http/file-server";
+import { serveFile } from "@std/http/file-server";
 
-const OUTDIR = "dist";
-await Deno.mkdir(OUTDIR, { recursive: true });
+const TMP_DIR = "tmp";
+const STATIC_GEN_DIR = "../static-generator/dist";
+const APP_GEN_DIR = "../app/dist";
+
+await Deno.mkdir(TMP_DIR, { recursive: true });
 
 const routes: Route[] = [
   {
     pattern: new URLPattern({ pathname: "/" }),
     handler: async (req) => {
-      const staticFile = await Deno.readTextFile("./gen/index.html");
+      const staticFile = await Deno.readTextFile(
+        `${STATIC_GEN_DIR}/static.html`,
+      );
       const template = await Deno.readTextFile("./template/base.html");
       const newFile = template.replace("<slot></slot>", staticFile);
-      await Deno.writeTextFile(`${OUTDIR}/index.html`, newFile);
-      return serveFile(req, `./${OUTDIR}/index.html`);
+      await Deno.writeTextFile(`${TMP_DIR}/index.html`, newFile);
+      return serveFile(req, `./${TMP_DIR}/index.html`);
     },
   },
   {
@@ -20,8 +25,15 @@ const routes: Route[] = [
     handler: (req) => serveFile(req, "./template/styles.css"),
   },
   {
-    pattern: new URLPattern({ pathname: "/gen/*" }),
-    handler: (req) => serveDir(req),
+    pattern: new URLPattern({ pathname: "/build.js" }),
+    handler: async (req) => {
+      const manifest = await import(
+        `${APP_GEN_DIR}/.vite/manifest.json`,
+        { with: { type: "json" } }
+      );
+      const bundleFileName = manifest.default["build.ts"].file;
+      return serveFile(req, `${APP_GEN_DIR}/${bundleFileName}`);
+    },
   },
   {
     method: ["GET"],

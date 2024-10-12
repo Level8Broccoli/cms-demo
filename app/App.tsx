@@ -13,7 +13,7 @@ export function App(
   console.log("this runs");
   return (
     <>
-      <h1>CMS Test (modified)</h1>
+      <h1>CMS Test</h1>
       <p>
         <Textarea
           state={props.state.textfield}

@@ -9,8 +9,6 @@ deno task generate
 cd ../app
 deno task build
 
-just copy
-
 cd ../cms
 deno task serve
 ```
