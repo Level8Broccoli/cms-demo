@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "npm:@preact/preset-vite@^2.9.1": "npm:@preact/preset-vite@2.9.1_@babel+core@7.25.8_vite@5.4.8_preact@10.24.2",
+    "npm:@preact/signals@^1.3.0": "npm:@preact/signals@1.3.0_preact@10.24.2",
     "npm:@types/node": "npm:@types/node@18.16.19",
     "npm:preact@^10.24.2": "npm:preact@10.24.2",
     "npm:vite": "npm:vite@5.4.8",
@@ -291,6 +292,16 @@
         "source-map",
         "stack-trace",
         "vite"
+      ]
+    },
+    "@preact/signals-core@1.8.0": {
+      "integrity": "sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA=="
+    },
+    "@preact/signals@1.3.0_preact@10.24.2": {
+      "integrity": "sha512-EOMeg42SlLS72dhoq6Vjq08havnLseWmPQ8A0YsgIAqMgWgx7V1a39+Pxo6i7SY5NwJtH4849JogFq3M67AzWg==",
+      "dependencies": [
+        "@preact/signals-core",
+        "preact"
       ]
     },
     "@prefresh/babel-plugin@0.5.1": {
@@ -658,6 +669,7 @@
   "workspace": {
     "dependencies": [
       "npm:@preact/preset-vite@^2.9.1",
+      "npm:@preact/signals@^1.3.0",
       "npm:preact@^10.24.2",
       "npm:vite@^5.4.8"
     ]

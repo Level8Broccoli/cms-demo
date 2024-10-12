@@ -7,7 +7,7 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       input: ["/build.ts"],
-      external: ["preact", "preact/jsx-runtime"],
+      external: ["preact", "preact/jsx-runtime", "@preact/signals"],
     },
   },
 });

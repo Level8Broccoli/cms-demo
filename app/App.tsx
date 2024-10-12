@@ -1,24 +1,28 @@
+import type { Signal } from "@preact/signals";
 import { Textarea } from "./core/Textarea.tsx";
+
+export type AppState = {
+  text: string;
+};
 
 export function App(
   props: {
     ctx?: {
       static: boolean;
-      updateTextfield: (s: string) => void;
       save: () => void;
     };
-    state: { textfield: string };
+    state: Signal<AppState>;
   },
 ) {
   console.log("this runs");
   return (
     <>
-      <h1>CMS Test</h1>
+      <h1>Kemet CMS</h1>
       <p>
         <Textarea
-          state={props.state.textfield}
+          state={props.state.value.text}
           static={props.ctx?.static ?? true}
-          onUpdate={props.ctx?.updateTextfield}
+          onUpdate={(s) => (props.state.value = { text: s })}
         />
       </p>
       {props.ctx?.static === false
