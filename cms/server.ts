@@ -8,6 +8,14 @@ const CMS_BASE_DIR = "cms";
 
 await Deno.mkdir(TMP_DIR, { recursive: true });
 
+function appendToHead(file: string, element: string): string {
+  return file.replace("</head>", element + "</head>");
+}
+
+function appendToHtml(file: string, element: string): string {
+  return file.replace("</html>", element + "</html>");
+}
+
 const routes: Route[] = [
   {
     pattern: new URLPattern({ pathname: "/" }),
@@ -15,10 +23,24 @@ const routes: Route[] = [
       const staticFile = await Deno.readTextFile(
         `${STATIC_GEN_DIR}/static.html`,
       );
-      const template = await Deno.readTextFile(
-        `${CMS_BASE_DIR}/template/base.html`,
+      const newFile = appendToHtml(
+        appendToHead(
+          staticFile,
+          `<link rel="stylesheet" href="/styles.css">`,
+        ),
+        `
+          <script type="importmap">
+            {
+              "imports": {
+                "preact": "https://esm.sh/preact@^10.24.2",
+                "preact/": "https://esm.sh/preact@^10.24.2/",
+                "@preact/signals": "https://esm.sh/@preact/signals@^1.3.0"
+              }
+            }
+          </script>
+          <script src="/build.js" type="module"></script>
+        `,
       );
-      const newFile = template.replace("<slot></slot>", staticFile);
       await Deno.writeTextFile(`${TMP_DIR}/index.html`, newFile);
       return serveFile(req, `./${TMP_DIR}/index.html`);
     },
