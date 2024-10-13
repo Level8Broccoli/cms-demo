@@ -1,5 +1,5 @@
 import type { Signal } from "@preact/signals";
-import { Textarea } from "./core/Textarea.tsx";
+import { Textarea } from "#/app/core/Textarea.tsx";
 
 export type AppState = {
   text: string;

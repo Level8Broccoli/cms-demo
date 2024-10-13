@@ -1,6 +1,6 @@
 import type { JSX } from "preact/jsx-runtime";
 import { signal } from "@preact/signals";
-import { App, type AppState } from "./App.tsx";
+import { App, type AppState } from "#/app/App.tsx";
 
 export function Cms(initState: AppState): JSX.Element {
   const appState = signal<AppState>(initState);
