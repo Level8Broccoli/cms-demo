@@ -34,7 +34,9 @@ const routes: Route[] = [
               "imports": {
                 "preact": "https://esm.sh/preact@^10.24.2",
                 "preact/": "https://esm.sh/preact@^10.24.2/",
-                "@preact/signals": "https://esm.sh/@preact/signals@^1.3.0"
+                "@preact/signals": "https://esm.sh/@preact/signals@^1.3.0",
+                "@tiptap/core": "https://esm.sh/@tiptap/core@^3.0.0",
+                "@tiptap/starter-kit": "https://esm.sh/@tiptap/starter-kit@^3.0.0"
               }
             }
           </script>

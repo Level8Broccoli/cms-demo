@@ -8,7 +8,14 @@ export default defineConfig({
     rollupOptions: {
       input: ["app/build.ts"],
       output: { dir: "dist/app" },
-      external: ["preact", "preact/jsx-runtime", "@preact/signals"],
+      external: [
+        "preact",
+        "preact/jsx-runtime",
+        "preact/hooks",
+        "@preact/signals",
+        "@tiptap/core",
+        "@tiptap/starter-kit",
+      ],
     },
   },
 });

@@ -1,6 +1,11 @@
 default:
     @just --list
 
+everything:
+    deno task generate
+    deno task build
+    deno task serve
+
 generate:
     deno task generate
 

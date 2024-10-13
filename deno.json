@@ -6,10 +6,13 @@
     "serve": "deno run --allow-net --allow-read --allow-write cms/server.ts"
   },
   "imports": {
-    "@std/http": "jsr:@std/http@^1.0.8",
+    "#/": "./",
     "@preact/preset-vite": "npm:@preact/preset-vite@^2.9.1",
     "@preact/signals": "npm:@preact/signals@^1.3.0",
-    "#/": "./",
+    "@std/http": "jsr:@std/http@^1.0.8",
+    "@tiptap/core": "npm:@tiptap/core@^3.0.0",
+    "@tiptap/pm": "npm:@tiptap/pm@^3.0.0",
+    "@tiptap/starter-kit": "npm:@tiptap/starter-kit@^3.0.0",
     "preact": "npm:preact@^10.24.2",
     "preact-render-to-string": "npm:preact-render-to-string@^6.5.11",
     "vite": "npm:vite@^5.4.8"
