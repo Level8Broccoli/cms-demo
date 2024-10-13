@@ -1,5 +1,5 @@
 import { renderToString } from "preact-render-to-string";
-import { DataInjecter } from "#/static-generator/DataInjecter.tsx";
+import { DataInjecter } from "#/generator/DataInjecter.tsx";
 import type { AppState } from "#/app/App.tsx";
 
 const data = await Deno.readTextFile("storage/data.txt");
