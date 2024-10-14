@@ -9,13 +9,11 @@
     {
       devShell = pkgs.mkShell {
         buildInputs = with pkgs; [
-          deno
+          nodejs
+          yarn
           emmet-ls
           just
         ];
-        shellHook = ''
-          export DENO_FUTURE=1
-        '';
       };
     }
   );
